@@ -52,8 +52,6 @@ public class HazelcastAsyncMultiMapTest extends AsyncMultiMapTest {
           ChoosableIterable<ServerID> s = ar.result();
           Map<String, ChoosableIterable<ServerID>> cache = getCacheFromMap();
 
-          // System.err.println("CACHE CONTENTS: " + cache);
-
           // check result
           assertNotNull(s);
           assertTrue(s.isEmpty());
@@ -71,6 +69,7 @@ public class HazelcastAsyncMultiMapTest extends AsyncMultiMapTest {
         }
       } else {
         fail(ar.cause().toString());
+        testComplete();
       }
     });
 
